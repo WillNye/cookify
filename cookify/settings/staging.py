@@ -7,7 +7,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 DATABASES = {
-    'default': SETTINGS['production']
+    'default': SETTINGS['staging']
 }
 
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': SETTINGS['redisStaging'],
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}

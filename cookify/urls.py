@@ -17,11 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from user_profile.views import PasswordUpdate
-from core.views import schema_view
+from core.views import schema_view, elb_health_check
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api-v1/update-password$', PasswordUpdate.as_view(), name='update_password'),
-    url(r'^api-v1/docs/', schema_view, name="docs"),
+    url(r'^api-v1/docs/', schema_view, name='docs'),
+    url(r'^health_check', elb_health_check, name='elb_health_check')
 ]

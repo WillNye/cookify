@@ -10,6 +10,7 @@ django-extensions==1.9.6
 django-filter==1.0.4
 django-filters==0.2.1
 django-jenkins==0.110.0
+django-redis==4.8.0
 django-rest-swagger==2.1.2
 django-storages==1.6.5
 djangorestframework==3.5.4
