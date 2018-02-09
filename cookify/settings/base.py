@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_redis',
     'storages',
+    'rest_framework_swagger',
 ] + PROJECT_APPS
 
 MIDDLEWARE = [
@@ -100,6 +101,24 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 28,
     'TEST_REQUEST_DEFAULT_FORMAT': 'jsonx'
 }
+
+SWAGGER_SETTINGS = {
+        "USE_SESSION_AUTH": False,
+        "LOGIN_URL": "/",
+        "LOGOUT_URL": "/",
+        "SUPPORTED_SUBMIT_METHOD": ['get', 'post', 'put', 'delete', 'patch'],
+        "APIS_SORTER": "alpha",
+        "VALIDATOR_URL": None,
+        'SECURITY_DEFINITIONS': {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            },
+        }
+     }
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
 
 LOGGING = {
     'version': 1,
